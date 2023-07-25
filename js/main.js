@@ -61,7 +61,7 @@ var sp = new Flickity(product, {
   pageDots: false,
   on: {
     change: function (index) {
-      let listProduct = $$(".product-left");
+      let listProduct = document.querySelectorAll(".product-left");
       listProduct.forEach((item) => item.classList.toggle("active"));
     },
   },
