@@ -179,6 +179,9 @@ header {
 
 
  */
+ .scalize{
+    margin: auto;
+ }
 .map {
     padding-top: 4rem;
     width: 100%;
