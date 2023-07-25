@@ -14,41 +14,45 @@ window.addEventListener("scroll", function (e) {
 
 // VALIDATION FORM
 function validation(e) {
-  let name = document.custom_form.name;
-  let email = document.custom_form.email;
-  let tel = document.custom_form.phone;
-  let tit = document.custom_form.title;
-  let ques = document.custom_form.question;
+  let name = document.getElementById('ten');
+  let mail = document.getElementById('mail');
+  let phone = document.getElementById('sdt');
+  let tit = document.getElementById('title');
+  let ques = document.getElementById('question');
+
+  console.log(name.nextElementSibling.style);
+  console.log(mail.value);
+  console.log(phone.value);
   let loi = 0;
-  if (!valid.kiemTraRong(name.value, "name")) {
+  if (!valid.kiemTraRong(name.value, "ten")) {
     loi++;
     name.nextElementSibling.style.display = "block";
   } else {
     name.nextElementSibling.style.display = "none";
   }
 
-  if (!valid.kiemTraRong(email.value, "email")) {
+  if (!valid.kiemTraRong(mail.value, "mail")) {
     loi++;
-    email.nextElementSibling.style.display = "block";
+    mail.nextElementSibling.style.display = "block";
   } else {
-    email.nextElementSibling.style.display = "none";
+    mail.nextElementSibling.style.display = "none";
   }
 
-  if (!valid.kiemTraRong(tel.value, "phone")) {
+  if (!valid.kiemTraRong(phone.value, "sdt")) {
     loi++;
-    tel.nextElementSibling.style.display = "block";
+    phone.nextElementSibling.style.display = "block";
   } else {
-    tel.nextElementSibling.style.display = "none";
+    phone.nextElementSibling.style.display = "none";
   }
 
-  if (!valid.kiemTraRong(tit.value, "tit")) {
+  if (!valid.kiemTraRong(tit.value, "title")) {
     loi++;
     tit.nextElementSibling.style.display = "block";
   } else {
     tit.nextElementSibling.style.display = "none";
   }
 
-  if (!valid.kiemTraRong(ques.value, "ques")) {
+  if (!valid.kiemTraRong(ques.value, "question")) {
     loi++;
     ques.nextElementSibling.style.display = "block";
   } else {
@@ -57,23 +61,23 @@ function validation(e) {
 
 //   Kiem tra email
 
-  if(valid.kiemTraEmail(email.value)){
-    email.style.borderColor='green';
-    email.nextElementSibling.style.display = "none";
+  if(valid.kiemTraEmail(mail.value)){
+    mail.style.borderBottom='2px solid green';
+    mail.nextElementSibling.style.display = "none";
   }else{
-    email.style.borderColor='red';
-    email.nextElementSibling.style.display = "block";
+    mail.style.borderBottom='2px solid red';
+    mail.nextElementSibling.style.display = "block";
     loi++;
   }
 
 
 // Kiem tra Number
-  if(valid.kiemTraNumber(tel.value)){
-    tel.style.borderColor='green';
-    tel.nextElementSibling.style.display = "none";
+  if(valid.kiemTraNumber(phone.value)){
+    phone.style.borderBottom='2px solid green';
+    phone.nextElementSibling.style.display = "none";
   }else{
-    tel.style.borderColor='red';
-    tel.nextElementSibling.style.display = "block";
+    phone.style.borderBottom='2px solid red';
+    phone.nextElementSibling.style.display = "block";
     loi++;
   }
   if(loi!=0)

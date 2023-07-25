@@ -1,4 +1,4 @@
-var Validation =function(){
+let Validation =function(){
   this.kiemTraRong=function(value,id)
   {
       if(value.trim()==="")
