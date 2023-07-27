@@ -69,19 +69,19 @@ ChangeImg(listBtn);
 let icon = document.querySelector(".icon");
 let tb1 = document.querySelector(".tb1");
 
-function clickList(item, tb) {
-  item.addEventListener("click", function (e) {
-    if (tb.classList.contains("tb-click")) {
-      tb.classList.remove("tb-click");
-      item.classList.remove("active");
-    } else {
-      tb.classList.add("tb-click");
-      item.classList.add("active");
-    }
-  });
-}
+// function clickList(item, tb) {
+//   item.addEventListener("click", function (e) {
+//     if (tb.classList.contains("tb-click")) {
+//       tb.classList.remove("tb-click");
+//       item.classList.remove("active");
+//     } else {
+//       tb.classList.add("tb-click");
+//       item.classList.add("active");
+//     }
+//   });
+// }
 
-clickList(icon, tb1);
+// clickList(icon, tb1);
 
 // clickList()
 
@@ -98,8 +98,9 @@ let tempIT2 = 1;
 let tempIT = 1;
 listIcon.forEach(function (item, index) {
   item.addEventListener("click", function (e) {
+    // LAY RA BANG hien tai dang click
     let tb = document.querySelector(`.tb${index + 1}`);
-
+  
     // CLICK HIEN DAU +,-
     for (let i = 0; i < listIcon.length; i++) {
       if (
@@ -112,17 +113,20 @@ listIcon.forEach(function (item, index) {
       item.classList.remove("active");
       // CLICK VAO HIEN RA BANG
 
-      for (let j = 0; j < listTb.length; j++) {
-        if (
-          listTb[i] !== tb &&
-          !listTb[i].getAttribute("class").includes("tb-click")
-        ) {
-          listTb[i].classList.add("tb-click");
+        for (let j = 0; j < listTb.length; j++) {
+          if (
+            listTb[i] !== tb &&
+            !listTb[i].getAttribute("class").includes("tb-click")
+          ) {
+            listTb[i].classList.add("tb-click");
+          }
+          tb.classList.remove("tb-click");
         }
-        tb.classList.remove("tb-click");
-      }
     }
+    
+   
 
+    // CLICK Them lan` nua vao` dau - mat active va tb-click
     if (temp1 % 2 !== 0) {
       // Luu lai bien dang click
       tempIT = this;

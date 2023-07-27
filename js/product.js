@@ -86,25 +86,50 @@ let priceGap = 1000;
 
 let priceMin = document.querySelector("#min");
 let priceMax = document.querySelector("#max");
-rangeInput.forEach((input) =>
-  input.addEventListener("input", (e) => {
-    let minVal = parseInt(rangeInput[0].value);
-    let maxVal = parseInt(rangeInput[1].value);
+// rangeInput.forEach((input) =>
+//   input.addEventListener("input", (e) => {
+//     let minVal = parseInt(rangeInput[0].value);
+//     let maxVal = parseInt(rangeInput[1].value);
 
-    if (maxVal - minVal < priceGap) {
-      if (e.target.className === "range-min") {
-        rangeInput[0].value = maxVal - priceGap;
-      } else {
-        rangeInput[1].value = minVal + priceGap;
-      }
-    } else {
-      priceMin.innerHTML = minVal + "$";
-      priceMax.innerHTML = maxVal + "$";
-      progress.style.left = (minVal / rangeInput[0].max) * 100 + "%";
-      progress.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+//     if (maxVal - minVal < priceGap) {
+//       if (e.target.className === "range-min") {
+//         rangeInput[0].value = maxVal - priceGap;
+//       } else {
+//         rangeInput[1].value = minVal + priceGap;
+//       }
+//     } else {
+//       priceMin.innerHTML = minVal + "$";
+//       priceMax.innerHTML = maxVal + "$";
+//       progress.style.left = (minVal / rangeInput[0].max) * 100 + "%";
+//       progress.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+//     }
+//   })
+// );
+rangeInput.forEach(function(item){
+  item.addEventListener('input',function(e){
+    // console.log(rangeInput[0])
+  let minVal=parseInt(rangeInput[0].value);
+  let maxVal=parseInt(rangeInput[1].value);
+
+  if(maxVal-minVal<priceGap)
+  {
+    if(e.target.className==='range-min')
+    {
+      rangeInput[0].value=maxVal-priceGap;
+    }else{
+      rangeInput[1].value=minVal+priceGap;
     }
+  }else{
+    priceMin.innerHTML=minVal+'$';
+    priceMax.innerHTML=maxVal+'$';
+    progress.style.left=(minVal/rangeInput[0].max)*100 + '%';
+    progress.style.right=100-((maxVal/rangeInput[0].max)*100)+'%';
+  }
+  
   })
-);
+})
+
+
 
 // CHOSE SEX
 
@@ -120,16 +145,19 @@ let choseSex = function () {
       }
       this.classList.toggle("active");
 
+      // Set cung lan` 1 click vao` girl thanh` mau` trang'
       let woman = document.querySelector(".chose__sex .woman");
       let imgCurrent = woman.querySelector("img");
       imgCurrent.src = "img1/img/wonmenWhite.png";
 
       for (let i = 0; i < listSex.length; i++) {
         // MAN
+         // Vd click vao avatar girl thi` this = avatar girl
+         //Doi avatar men thanh black 
         if (listSex[i].classList.contains("man") && listSex[i] !== this) {
           let img = listSex[i].querySelector("img");
 
-          img.src = "img1/img/menBlack.png";
+          img.src = "img1/img/menBlack.png";  
         }
         // WOMAN
         else if (

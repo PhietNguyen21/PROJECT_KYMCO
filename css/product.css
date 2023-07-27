@@ -450,7 +450,7 @@ h4 {
     position: absolute;
     border-radius: 5px;
     background-color: black;
-}
+} 
 
 .range-input {
     position: relative;
@@ -464,7 +464,7 @@ h4 {
     background: none;
     appearance: none;
     pointer-events: none;
-    /* -webkit-appearance: none; */
+   
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -474,10 +474,15 @@ input[type="range"]::-webkit-slider-thumb {
     pointer-events: auto;
     border: 6px solid #f4352c;
     background-color: #b41710;
-    /* -webkit-appearance: none; */
     appearance: none;
     cursor: pointer;
 }
+
+
+
+
+
+
 
 .text__left,
 .text__right {

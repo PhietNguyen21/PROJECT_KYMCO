@@ -1,4 +1,3 @@
-
 //SCROLL HEADER
 let header = document.querySelector("header");
 window.addEventListener("scroll", function (e) {
@@ -70,19 +69,28 @@ var sp = new Flickity(product, {
 
 // console.log(window.innerWidth);
 
-window.addEventListener('resize',(e)=>{
- if(e.currentTarget.innerWidth<769)
- {
-  $(".list-product2").not('.slick-initialized').slick({
-    centerMode: true,
-    centerPadding: "60px",
-    slidesToShow: 1,
-    arrows: false,
-  });
-
- }
-})
-
+window.addEventListener("resize", (e) => {
+  console.log(123);
+  if (e.currentTarget.innerWidth < 1199&&e.currentTarget.innerWidth > 769) {
+    document.querySelector(".slider-top ").style.height =
+      "700px";
+      document.querySelector(".slider-top > .flickity-viewport ").style.height =
+      "700px";
+  } else if (e.currentTarget.innerWidth < 769 ) {
+    console.log(123);
+    document.querySelector(".slider-top ").style.height =
+      "480px";
+      document.querySelector(".slider-top > .flickity-viewport ").style.height =
+      "480px";
+    document.querySelector('.list-product2').style.display='block';
+    $(".list-product2").not(".slick-initialized").slick({
+      centerMode: true,
+      centerPadding: "60px",
+      slidesToShow: 1,
+      arrows: false,
+    });
+  }
+});
 
 // Earth Parrallax
 
@@ -93,7 +101,8 @@ parallaxEarth = function () {
     // getting mouse dimentions
     var mouseX = e.pageX;
     var now = (15 * (mouseX - bodywidth / 2)) / bodywidth;
-    document.querySelector(".earth").style.transform = "rotate(" + now + "deg) translateX(-50%)";
+    document.querySelector(".earth").style.transform =
+      "rotate(" + now + "deg) translateX(-50%)";
     document.querySelector(".earth").style.transformOrigin = "0% 50%";
 
     // {
@@ -108,14 +117,13 @@ parallaxEarth = function () {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  $(".list-product2").not('.slick-initialized').slick({
+  $(".list-product2").not(".slick-initialized").slick({
     centerMode: true,
     centerPadding: "60px",
     slidesToShow: 1,
     arrows: false,
   });
   parallaxEarth();
-  
 });
 
 // CLICK BAR
@@ -145,3 +153,10 @@ function clickBar() {
 }
 
 clickBar();
+
+// LOAD
+let preload = document.getElementById("Loaded");
+
+window.addEventListener("load", function () {
+  preload.style.display = "none";
+});
