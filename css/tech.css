@@ -9,6 +9,10 @@
     margin: 0;
     box-sizing: border-box;
 }
+html,
+body {
+    overflow-x: hidden;
+}
 
 body {
     font-family: "Montserrat", sans-serif;
